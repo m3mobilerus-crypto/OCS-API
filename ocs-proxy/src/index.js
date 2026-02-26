@@ -45,7 +45,13 @@ app.use(express.json());
 app.get('/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
-
+app.get('/myip', async (req, res) => {
+  const axios = require('axios');
+  const result = await axios.get('https://ifconfig.me/ip', {
+    headers: { 'User-Agent': 'curl/7.0' }
+  });
+  res.json({ ip: result.data });
+});
 // ─── API routes ───────────────────────────────────────────────────────────────
 app.use('/api', catalogRoutes);
 app.use('/api', contentRoutes);
