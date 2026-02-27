@@ -32,9 +32,9 @@ app.use(cors({
 
 // ─── Rate limiting — защита от перегрузки ───────────────────────────────────
 const limiter = rateLimit({
-  windowMs: 60 * 1000, // 1 минута
-  max: 60,             // максимум 60 запросов в минуту с одного IP
-  message: { error: 'Too many requests, please try again later.' },
+  windowMs: 60 * 1000,
+  max: 60,
+  validate: { xForwardedForHeader: false },
 });
 app.use(limiter);
 
