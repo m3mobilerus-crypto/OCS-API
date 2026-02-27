@@ -4,12 +4,14 @@ const OCS_BASE_URL = 'https://connector.b2b.ocs.ru';
 const OCS_TEST_URL = 'https://testconnector.b2b.ocs.ru';
 
 const baseURL = process.env.OCS_ENV === 'test' ? OCS_TEST_URL : OCS_BASE_URL;
+// Отладка — удалить после проверки
+console.log('TOKEN:', JSON.stringify(process.env.OCS_API_TOKEN));
 
 const ocsClient = axios.create({
   baseURL,
   headers: {
     'accept': 'application/json',
-    'X-API-Key': process.env.OCS_API_TOKEN,
+'X-API-Key': process.env.OCS_API_TOKEN || '',
   },
   timeout: 30000,
 });
