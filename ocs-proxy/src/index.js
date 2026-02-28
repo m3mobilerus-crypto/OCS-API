@@ -13,6 +13,7 @@ const PORT = process.env.PORT || 3000;
 const allowedOrigins = [
   process.env.ALLOWED_ORIGIN || 'https://m3-mobile.ru',
   'https://www.m3-mobile.ru',
+  'https://m3mobilerus-crypto.github.io',
   'http://localhost:3000', // для локальной разработки
   'http://localhost:5500',
 ];
